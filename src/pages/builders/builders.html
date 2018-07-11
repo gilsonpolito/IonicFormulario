@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login!</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="loginForm" (submit)="fazLogin()">
+    <ion-item>
+      <ion-input type="text" formControlName="usuario" placeholder="Digite o usuário!"></ion-input>
+    </ion-item>
+    <h5 *ngIf="loginForm.controls.usuario.hasError('minlength')">Muito curto</h5>
+    <ion-item>
+      <ion-input type="text" formControlName="senha" placeholder="Digite a senha!"></ion-input>
+    </ion-item>
+    <h5 class="error" *ngIf="erroSenha">{{msgSenha}}</h5>
+    <button ion-button>Enviar</button>
+  </form>
+</ion-content>
